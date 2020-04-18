@@ -82,6 +82,16 @@
                     console.error(oError);
                 });
         }
+        function getNewMathFact() {
+            var sUrl = sBaseUrl + "math";
+            $.get(sUrl)
+                .done(function (oData) {
+                    $("#fact").html(oData);
+                })
+                .fail(function (oError) {
+                    console.error(oError);
+                });
+        }
     </script>
 </body>
 
