@@ -32,7 +32,7 @@
     </style>
 </head>
 
-<body onload="getNewTriviaFact()">
+<body onload="getFact('trivia')">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Facts</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -61,10 +61,10 @@
             <p class="lead" id="fact"></p>
             <hr />
             <div class="btn-group" role="group" aria-label="Number facts">
-                <button type="button" class="btn btn-info" onclick="getNewTriviaFact()">Get a new Trivia fact</button>
-                <button type="button" class="btn btn-info" onclick="getNewMathFact()">Get a new Math fact</button>
-                <button type="button" class="btn btn-info" onclick="getNewYearFact()">Get a new Year fact</button>
-                <button type="button" class="btn btn-info" onclick="getNewDateFact()">Get a new Date fact</button>
+                <button type="button" class="btn btn-info" onclick="getFact('trivia')">Get a new Trivia fact</button>
+                <button type="button" class="btn btn-info" onclick="getFact('math')">Get a new Math fact</button>
+                <button type="button" class="btn btn-info" onclick="getFact('year')">Get a new Year fact</button>
+                <button type="button" class="btn btn-info" onclick="getFact('date')">Get a new Date fact</button>
             </div>
         </div>
     </main>
@@ -72,8 +72,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script>
         var sBaseUrl = "http://numbersapi.com/random/";
-        function getNewTriviaFact() {
-            var sUrl = sBaseUrl + "trivia";
+        function getFact(sType) {
+            var sUrl = sBaseUrl + sType;
             $.get(sUrl)
                 .done(function (oData) {
                     $("#fact").html(oData);
